@@ -8,7 +8,7 @@ import Guesser from './components/Guesser.vue'
   </header>
 
   <main class="center">
-    <p class="center">Match the sponsor with the correct team</p> 
+    <div>Match the sponsor with the correct team</div> 
     <Guesser/>
   </main>
 </template>

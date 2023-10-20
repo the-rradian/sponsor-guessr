@@ -1,62 +1,67 @@
 
 <script setup>
-import { ref, computed, onMounted} from 'vue';
-const sponsor = ref("Oracle")
-const team = ref("Red Bull")
+import { ref, computed, onMounted } from 'vue';
+let answers = []
+const sponsor = ref("")
+const team = ref("")
 const guess = ref("")
 const attempts = ref(3)
-let finished = false
+let finished = ref(false)
 let correct = false
 const flag = computed(()=> {
     return correct ? "🏁" : "🚩"
 })
 
-fetch("../f12023.json")
-.then((response)=>response.json())
-.then((json)=>{
-    console.log(json)
-
-    /* const randomTeam = Math.floor(Math.random * json.length)
-    console.log(randomTeam)
-    team.value = json[randomTeam]["name"]
-    console.log(team.value)
-    const randomSponsor = Math.floor(Math.random * json[randomTeam]["name"]["sponsors"].length)
-    sponsor.value = json[randomTeam]["name"]["sponsors"][randomSponsor]
-    console.log(sponsor.value)*/
-
+onMounted(()=>{
+    console.log("Component mounted")
+    getAnswers()
 })
 
+async function getAnswers(){
+
+    const res = await fetch("../f12023.json")
+    answers = await res.json()
+    console.log(answers)
+
+    const randomTeam = Math.floor(Math.random() * answers.length)
+    team.value = answers[randomTeam]["name"]
+    const randomSponsor = Math.floor(Math.random() * answers[randomTeam]["sponsors"].length)
+    sponsor.value = answers[randomTeam]["sponsors"][randomSponsor]["name"]
+}
 function checkAnswer() {
     if (guess.value.trim() === team.value){
        correct = true
        console.log("correct")
-       finished = true
+       finished.value = true
     }
     else {
+        attempts.value--
         if(attempts.value === 0){
-            finished = true
-        } else {
-            attempts.value--
+            finished.value = true
         }
         console.log("incorrect")
+
     }
 }
 
 function newRound() {
-    //set finished to false, correct to false, reset attempts to 3
-    finished = false
+    //set finished to false, correct to false, reset attempts to 3, clear guess
+    finished.value = false
     correct = false
     attempts.value = 3
+    guess.value = ""
     //fetch a new random team and random sponsor from that team
-
-    //set answer to team name
+    const randomTeam = Math.floor(Math.random() * answers.length)
+    team.value = answers[randomTeam]["name"]
+    const randomSponsor = Math.floor(Math.random() * answers[randomTeam]["sponsors"].length)
+    sponsor.value = answers[randomTeam]["sponsors"][randomSponsor]["name"]
     //fetch the associated image of that sponsor
 }
 </script>
 <template>
     <main>
         <img class="center" id="logo" src="../assets/logo.svg"/>
-        <h2 class="center">Sponsor name</h2>
+        <h2 class="center">{{ sponsor }}</h2>
         <section id="guessing" v-if="!(finished)">
             <h3 class="center">Tries remaining: {{ attempts }}</h3>
             <input id="guess" v-model="guess" type="text" placeholder="Type your guess..."/>
@@ -64,9 +69,9 @@ function newRound() {
                 <button class="btn" type="submit" @click="checkAnswer()">Guess</button>
             </p>
         </section>
-        <section id="finished" >
+        <section id="finished" v-if="finished">
                 <h3 class="center" id="answer">{{ flag }} Answer: {{ team }} {{ flag }}</h3>
-                <button class="btn">Try another one</button>
+                <button class="btn" @click="newRound()">Try another one</button>
         </section>
     </main>
     
