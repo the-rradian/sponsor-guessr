@@ -21,7 +21,7 @@ async function getAnswers(){
 
     const res = await fetch("../f12023.json")
     answers = await res.json()
-    console.log(answers)
+    //console.log(answers)
 
     const randomTeam = Math.floor(Math.random() * answers.length)
     team.value = answers[randomTeam]["name"]
@@ -63,7 +63,7 @@ function newRound() {
         <img class="center" id="logo" src="../assets/logo.svg"/>
         <h2 class="center">{{ sponsor }}</h2>
         <section id="guessing" v-if="!(finished)">
-            <h3 class="center">Tries remaining: {{ attempts }}</h3>
+            <h3 id="attempts" class="center">Tries remaining: {{ attempts }}</h3>
             <input id="guess" v-model="guess" type="text" placeholder="Type your guess..."/>
             <p>
                 <button class="btn" type="submit" @click="checkAnswer()">Guess</button>
