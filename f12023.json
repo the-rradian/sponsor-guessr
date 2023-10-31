@@ -4,19 +4,19 @@
       "sponsors": [
          {
             "name": "CryptoData",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Stake",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Wispr",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Singha Beer",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -25,18 +25,14 @@
       "sponsors": [
          {
             "name": "FlexBox",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Orlen",
-            "link": ""
+            "image": ""
          },
          {
             "name": "HRC",
-            "link": ""
-         },
-         {
-            "name": "Rapid",
             "link": ""
          }
       ]
@@ -46,11 +42,11 @@
       "sponsors": [
          {
             "name": "BWT",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Castrol",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -59,11 +55,11 @@
       "sponsors": [
          {
             "name": "Peroni",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Cognizant",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -72,19 +68,19 @@
       "sponsors": [
          {
             "name": "Santander",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Richard Mille",
-            "link": ""
+            "image": ""
          },
          {
             "name": "AWS",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Shell",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -93,7 +89,7 @@
       "sponsors": [
          {
             "name": "MoneyGram",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -102,15 +98,15 @@
       "sponsors": [
          {
             "name": "Chrome",
-            "link": ""
+            "image": ""
          },
          {
             "name": "OKX",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Vuse",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -119,23 +115,23 @@
       "sponsors": [
          {
             "name": "Petronas",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Team Viewer",
-            "link": ""
+            "image": ""
          },
          {
             "name": "AMD",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Ineos",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Solera",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -144,23 +140,23 @@
       "sponsors": [
          {
             "name": "Oracle",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Mobil 1",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Bybit",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Zoom",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Walmart",
-            "link": ""
+            "image": ""
          }
       ]
    },
@@ -169,15 +165,15 @@
       "sponsors": [
          {
             "name": "Duracell",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Gulf Oil",
-            "link": ""
+            "image": ""
          },
          {
             "name": "Dorilton Ventures",
-            "link": ""
+            "image": ""
          }
       ]
    }

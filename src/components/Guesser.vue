@@ -1,9 +1,12 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-let answers = []
-const sponsor = ref("")
-const team = ref("")
+import { getAnswers, getRound, getImage } from '../firebase'
+const round = ref({
+  "team": "",
+  "sponsor": "",
+  "image": ""
+})
 const guess = ref("")
 const attempts = ref(3)
 let finished = ref(false)
@@ -14,22 +17,29 @@ const flag = computed(()=> {
 
 onMounted(()=>{
     console.log("Component mounted")
+    //download all the answers
     getAnswers()
+    .then(() =>{
+        round.value = getRound()//assign the answer for this round
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    //get the image of the sponsor
+    getImage('oracle.png')
+    .then((url)=>{
+        console.log(url)
+        const logo = document.getElementById('logo')
+        logo.setAttribute('src', url)
+    })
+    .catch((error)=>{
+        console.log(error)
+        console.log("No related image found")
+    })
 })
 
-async function getAnswers(){
-
-    const res = await fetch("../f12023.json")
-    answers = await res.json()
-    //console.log(answers)
-
-    const randomTeam = Math.floor(Math.random() * answers.length)
-    team.value = answers[randomTeam]["name"]
-    const randomSponsor = Math.floor(Math.random() * answers[randomTeam]["sponsors"].length)
-    sponsor.value = answers[randomTeam]["sponsors"][randomSponsor]["name"]
-}
 function checkAnswer() {
-    if (guess.value.trim() === team.value){
+    if (guess.value.trim() === round.value.team){
        correct = true
        console.log("correct")
        finished.value = true
@@ -50,18 +60,16 @@ function newRound() {
     correct = false
     attempts.value = 3
     guess.value = ""
-    //fetch a new random team and random sponsor from that team
-    const randomTeam = Math.floor(Math.random() * answers.length)
-    team.value = answers[randomTeam]["name"]
-    const randomSponsor = Math.floor(Math.random() * answers[randomTeam]["sponsors"].length)
-    sponsor.value = answers[randomTeam]["sponsors"][randomSponsor]["name"]
-    //fetch the associated image of that sponsor
+    //get a new round
+    round.value = getRound()
+    //get the image of the sponsor
+
 }
 </script>
 <template>
     <main>
-        <img class="center" id="logo" src="../assets/logo.svg"/>
-        <h2 class="center">{{ sponsor }}</h2>
+        <img class="center" id="logo" src="../assets/no-image-icon-23485.png"/>
+        <h2 class="center">{{ round.sponsor }}</h2>
         <section id="guessing" v-if="!(finished)">
             <h3 id="attempts" class="center">Tries remaining: {{ attempts }}</h3>
             <input id="guess" v-model="guess" type="text" placeholder="Type your guess..."/>
@@ -70,7 +78,7 @@ function newRound() {
             </p>
         </section>
         <section id="finished" v-if="finished">
-                <h3 class="center" id="answer">{{ flag }} Answer: {{ team }} {{ flag }}</h3>
+                <h3 class="center" id="answer">{{ flag }} Answer: {{ round.team }} {{ flag }}</h3>
                 <button class="btn" @click="newRound()">Try another one</button>
         </section>
     </main>
