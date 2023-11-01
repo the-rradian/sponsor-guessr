@@ -6,9 +6,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:unit": "vitest"
+    "test": "vitest"
   },
   "dependencies": {
+    "firebase": "^10.5.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
