@@ -20,21 +20,10 @@ onMounted(()=>{
     //download all the answers
     getAnswers()
     .then(() =>{
-        round.value = getRound()//assign the answer for this round
+        newRound()//start a new round
     })
     .catch((error) => {
         console.log(error)
-    })
-    //get the image of the sponsor
-    getImage('oracle.png')
-    .then((url)=>{
-        console.log(url)
-        const logo = document.getElementById('logo')
-        logo.setAttribute('src', url)
-    })
-    .catch((error)=>{
-        console.log(error)
-        console.log("No related image found")
     })
 })
 
@@ -63,11 +52,22 @@ function newRound() {
     //get a new round
     round.value = getRound()
     //get the image of the sponsor
-
+    getImage(round.value.image)
+        .then((url)=>{
+            const logo = document.getElementById('logo')
+            logo.setAttribute('src', url)
+        })
+        .catch((error)=>{
+            console.log(error)
+            console.log("No related image found")
+            const logo = document.getElementById('logo')
+            logo.setAttribute('src', "src/assets/no-image-icon-23485.png")
+        })
 }
 </script>
 <template>
     <main>
+        <h2>Match the sponsor with the correct team</h2> 
         <img class="center" id="logo" src="../assets/no-image-icon-23485.png"/>
         <h2 class="center">{{ round.sponsor }}</h2>
         <section id="guessing" v-if="!(finished)">
@@ -158,6 +158,11 @@ function newRound() {
         height: 40px;
         border: none;
         border-radius: 10px;
+        }
+        #logo{
+            background-color: white;
+            min-height: 100px;
+            min-width: 100px;
         }
     }
 

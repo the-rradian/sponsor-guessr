@@ -4,19 +4,19 @@
       "sponsors": [
          {
             "name": "CryptoData",
-            "image": ""
+            "image": "cryptodata.png"
          },
          {
             "name": "Stake",
-            "image": ""
+            "image": "stake_logo.png"
          },
          {
             "name": "Wispr",
-            "image": ""
+            "image": "wispr_logo.png"
          },
          {
             "name": "Singha Beer",
-            "image": ""
+            "image": "singha_beer_logo.png"
          }
       ]
    },
@@ -25,15 +25,15 @@
       "sponsors": [
          {
             "name": "FlexBox",
-            "image": ""
+            "image": "flexbox_logo.png"
          },
          {
             "name": "Orlen",
-            "image": ""
+            "image": "orlen_logo.png"
          },
          {
             "name": "HRC",
-            "link": ""
+            "link": "hrc_logo.png"
          }
       ]
    },
@@ -42,11 +42,11 @@
       "sponsors": [
          {
             "name": "BWT",
-            "image": ""
+            "image": "bwt_logo.png"
          },
          {
             "name": "Castrol",
-            "image": ""
+            "image": "castrol_logo.png"
          }
       ]
    },
@@ -59,7 +59,7 @@
          },
          {
             "name": "Cognizant",
-            "image": ""
+            "image": "cognizant_logo.png"
          }
       ]
    },
@@ -76,11 +76,11 @@
          },
          {
             "name": "AWS",
-            "image": ""
+            "image": "aws_logo.png"
          },
          {
             "name": "Shell",
-            "image": ""
+            "image": "shell_logo.png"
          }
       ]
    },
@@ -89,7 +89,7 @@
       "sponsors": [
          {
             "name": "MoneyGram",
-            "image": ""
+            "image": "moneygram_logo.png"
          }
       ]
    },
@@ -98,7 +98,7 @@
       "sponsors": [
          {
             "name": "Chrome",
-            "image": ""
+            "image": "chrome_logo"
          },
          {
             "name": "OKX",
@@ -119,7 +119,7 @@
          },
          {
             "name": "Team Viewer",
-            "image": ""
+            "image": "teamviewr_logo.png"
          },
          {
             "name": "AMD",
@@ -140,11 +140,11 @@
       "sponsors": [
          {
             "name": "Oracle",
-            "image": ""
+            "image": "oracle.png"
          },
          {
             "name": "Mobil 1",
-            "image": ""
+            "image": "mobil1_logo.png"
          },
          {
             "name": "Bybit",
@@ -152,11 +152,11 @@
          },
          {
             "name": "Zoom",
-            "image": ""
+            "image": "zoom_logo.png"
          },
          {
             "name": "Walmart",
-            "image": ""
+            "image": "walmart_logo.png"
          }
       ]
    },
