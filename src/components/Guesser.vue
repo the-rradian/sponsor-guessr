@@ -58,7 +58,7 @@ function newRound() {
             logo.setAttribute('src', url)
         })
         .catch((error)=>{
-            console.log(error)
+            console.error(error)
             console.log("No related image found")
             const logo = document.getElementById('logo')
             logo.setAttribute('src', "src/assets/no-image-icon-23485.png")
