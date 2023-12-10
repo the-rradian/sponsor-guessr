@@ -68,7 +68,9 @@ function newRound() {
 <template>
     <main>
         <h2>Match the sponsor with the correct team</h2> 
-        <img class="center" id="logo" src="../assets/no-image-icon-23485.png"/>
+        <div class="logo-container">
+            <img class="logo-image center" id="logo" src="../assets/no-image-icon-23485.png" alt="Logo">
+        </div>
         <h2 class="center">{{ round.sponsor }}</h2>
         <section id="guessing" v-if="!(finished)">
             <h3 id="attempts" class="center">Tries remaining: {{ attempts }}</h3>
@@ -126,10 +128,18 @@ function newRound() {
         margin: auto;
         align-self: center;
     }
-    #logo {
-        margin-left: 25%;
-        margin-right: 25%;
-    }
+    .logo-container {
+            width:25vw; /* Set a fixed width for the container */
+            height: 30vh; /* Set a fixed height for the container */
+            overflow: hidden; /* Hide any overflow beyond the container */
+            background-color: aliceblue;
+        }
+
+        .logo-image {
+            width: 100%; /* Make the image fill the container width */
+            height: 30vh; /* Make the image fill the container height */
+            object-fit: contain; /* Maintain aspect ratio and cover the container */
+        }
 
 
     @media (max-aspect-ratio: 9/16) {
