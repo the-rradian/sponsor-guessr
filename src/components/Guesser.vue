@@ -131,13 +131,12 @@ function newRound() {
     .logo-container {
             width:25vw; /* Set a fixed width for the container */
             height: 30vh; /* Set a fixed height for the container */
-            overflow: hidden; /* Hide any overflow beyond the container */
             background-color: aliceblue;
         }
 
         .logo-image {
             width: 100%; /* Make the image fill the container width */
-            height: 30vh; /* Make the image fill the container height */
+            height: 30vh; 
             object-fit: contain; /* Maintain aspect ratio and cover the container */
         }
 
@@ -169,10 +168,17 @@ function newRound() {
         border: none;
         border-radius: 10px;
         }
-        #logo{
-            background-color: white;
-            min-height: 100px;
-            min-width: 100px;
+        .logo-container {
+            width:80vw; /* Set a fixed width for the container */
+            height: 30vh; /* Set a fixed height for the container */
+            background-color: aliceblue;
+            margin-left: 10vw;
+        }
+
+        .logo-image {
+            width: 100%; /* Make the image fill the container width */
+            height: 30vh; 
+            object-fit: contain; /* Maintain aspect ratio and cover the container */
         }
     }
 
